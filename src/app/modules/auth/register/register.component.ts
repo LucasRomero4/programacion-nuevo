@@ -24,8 +24,11 @@ export class RegisterComponent {
       contraseña: this.usuarios.contrasena
     };
     const res = await this.servicoAuth.registrar(credenciales.nombre, credenciales.contraseña).then(res => {
+     //metodo CATCH creara un error en caso que algo salga mal.
       alert("ha agregado un nuevo usuario con éxito")
     })
+    .catch(error =>
+      alert("hubo un error al crear un usurario :( \n " + error))
     console.log(res)
   }
 }
